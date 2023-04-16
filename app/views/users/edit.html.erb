@@ -1,0 +1,12 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name %>
+  <%= f.input :username %>
+  <%= f.input :contact %>
+  <%
+=begin%>
+ <%= f.input :user_type %> # this line allow user to change user_type
+<%
+=end%>
+  <%= f.input :address %>
+  <%= f.button :submit %>
+<% end %>

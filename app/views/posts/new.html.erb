@@ -1,0 +1,9 @@
+<%= simple_form_for [@user, @post] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :year %>
+  <%= f.input :km %>
+  <%= f.input :post_status %>
+  <%= f.button :submit %>
+<% end %>

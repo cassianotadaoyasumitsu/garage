@@ -1,0 +1,8 @@
+<h1>SHOW</h1>
+<p> <%= current_user.name %> </p>
+<p> <%= current_user.username %> </p>
+<p> <%= current_user.email %> </p>
+<p> <%= current_user.user_type %> </p>
+<p> <%= current_user.contact %> </p>
+<p> <%= current_user.address %> </p>
+<%= link_to "Posts", user_posts_path(current_user) %>
