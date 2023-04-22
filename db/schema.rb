@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_16_161055) do
     t.decimal "price"
     t.integer "year"
     t.integer "km"
+    t.string "region"
     t.string "post_status"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -35,6 +36,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_16_161055) do
     t.string "contact"
     t.string "user_type", default: "Individual"
     t.string "address"
+    t.string "full_name"
+    t.string "uid"
+    t.string "avatar_url"
+    t.string "provider"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -14,6 +14,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :user_type, default: "Individual"
       t.string :address
 
+      ## User Info Google
+      t.string :full_name
+      t.string :uid
+      t.string :avatar_url
+      t.string :provider
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
