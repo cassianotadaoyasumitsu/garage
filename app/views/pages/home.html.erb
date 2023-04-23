@@ -1,5 +1,5 @@
 <h1>Bem Vindo!</h1>
-
+<h2>Cadastre-se para criar um anúncio!</h2>
 
 <% @posts.each do |post| %>
   <div class="card-product mb-1">
@@ -7,7 +7,7 @@
     <div class="card-product-infos">
       <h2><%= post.title %></h2>
       <p><strong><%= post.description %></strong></p>
-      <%= link_to "Ver Anúncio", user_post_path(current_user, post), class: "btn btn-outline-success btn-sm rounded-pill" %>
+      <%= link_to "Ver Anúncio", user_post_path(post.user, post), class: "btn btn-outline-success btn-sm rounded-pill" %>
     </div>
   </div>
 <% end %>
