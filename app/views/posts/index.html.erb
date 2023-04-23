@@ -10,7 +10,7 @@
     <p><%= post.post_status %></p>
     <p><%= post.user.email %></p>
     <% if current_user == post.user %>
-      <%= link_to "Show", user_post_path(current_user, post) %>
       <%= link_to "Edit", edit_user_post_path(current_user, post) %>
     <% end %>
+    <%= link_to "Show", user_post_path(current_user, post) %>
     <% end %>

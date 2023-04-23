@@ -1,12 +1,43 @@
 <h1>POST SHOW</h1>
-<p><%= @post.title %></p>
-<p><%= @post.description %></p>
-<p><%= @post.price %></p>
-<p><%= @post.year %></p>
-<p><%= @post.km %></p>
-<p><%= @post.region %></p>
-<p><%= @post.post_status %></p>
 
+
+
+<div class="card mb-3">
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="..." class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="..." class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="..." class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @post.title %></h5>
+    <p class="card-text"><%= @post.description %></p>
+    <p class="card-text"><%= @post.price %></p>
+    <p class="card-text"><%= @post.year %></p>
+    <p class="card-text"><%= @post.km %></p>
+    <p class="card-text"><%= @post.region %></p>
+    <p class="card-text"><%= @post.post_status %></p>
+    <p class="card-text"><%= @post.user.contact %></p>
+    <p class="card-text"><small class="text-body-secondary"><%= @post.updated_at %></small></p>
+  </div>
+</div>
+
+<% if current_user == @post.user %>
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Apagar
@@ -23,6 +54,7 @@
       <div class="modal-body">
         Uma vez apagado o post não poderá ser recuperado.
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
         <%= link_to "Confirmar", user_post_path(current_user, @post), method: :delete, data: { turbo_method: :delete }, class: "btn btn-success" %>
@@ -30,3 +62,4 @@
     </div>
   </div>
 </div>
+<% end %>

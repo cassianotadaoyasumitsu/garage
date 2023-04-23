@@ -1,12 +1,13 @@
-.navbar-lewagon {
+.navbar-usuario {
   justify-content: space-between;
-  background: white;
+  background: black;
+  color: white;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-usuario .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-usuario .navbar-brand img {
   width: 40px;
 }
