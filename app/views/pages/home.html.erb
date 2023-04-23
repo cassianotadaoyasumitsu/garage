@@ -7,10 +7,7 @@
     <div class="card-product-infos">
       <h2><%= post.title %></h2>
       <p><strong><%= post.description %></strong></p>
-      <% if current_user == post.user %>
-        <%= link_to "Editar", edit_user_post_path(current_user, post) %>
-      <% end %>
-      <%= link_to "Ver Anúncio", user_post_path(current_user, post) %>
+      <%= link_to "Ver Anúncio", user_post_path(current_user, post), class: "btn btn-outline-success btn-sm rounded-pill" %>
     </div>
   </div>
 <% end %>
