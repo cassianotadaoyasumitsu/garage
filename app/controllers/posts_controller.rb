@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   
     # GET /posts
     def index
-      @posts = Post.all
+      @posts = current_user.posts
     end
   
     # GET /posts/1
@@ -18,6 +18,9 @@ class PostsController < ApplicationController
   
     # GET /posts/1/edit
     def edit
+      if @post.user != current_user
+        redirect_to user_posts_path, alert: "You do not have permission to edit this post."
+      end
     end
   
     # POST /posts
@@ -34,10 +37,14 @@ class PostsController < ApplicationController
   
     # PATCH/PUT /posts/1
     def update
-      if @post.update(post_params)
-        redirect_to user_post_path(current_user, @post), notice: 'Post was successfully updated.'
+      if @post.user != current_user
+        redirect_to user_posts_path, alert: "You do not have permission to edit this post."
       else
-        render :edit
+        if @post.update(post_params)
+          redirect_to user_post_path(current_user, @post), notice: 'Post was successfully updated.'
+        else
+          render :edit
+        end
       end
     end
   
@@ -61,7 +68,7 @@ class PostsController < ApplicationController
   
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :description, :price, :year, :km, :post_status, :user_id)
+      params.require(:post).permit(:title, :description, :price, :year, :km, :region, :post_status, :user_id)
     end
   end
   

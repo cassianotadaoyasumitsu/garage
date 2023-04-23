@@ -6,6 +6,7 @@ class Posts < ActiveRecord::Migration[7.0]
       t.decimal :price
       t.integer :year
       t.integer :km
+      t.string :region
       t.string :post_status
       t.references :user, null: false, foreign_key: true
 

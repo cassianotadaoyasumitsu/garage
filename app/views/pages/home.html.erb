@@ -1,1 +1,16 @@
 <h1>Bem Vindo!</h1>
+
+
+<% @posts.each do |post| %>
+  <div class="card-product mb-1">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2><%= post.title %></h2>
+      <p><strong><%= post.description %></strong></p>
+      <% if current_user == post.user %>
+        <%= link_to "Show", user_post_path(current_user, post) %>
+        <%= link_to "Edit", edit_user_post_path(current_user, post) %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
