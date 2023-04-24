@@ -2,12 +2,16 @@
 <h2>Cadastre-se para criar um anúncio!</h2>
 
 <% @posts.each do |post| %>
-  <div class="card-product mb-1">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-    <div class="card-product-infos">
-      <h2><%= post.title %></h2>
-      <p><strong><%= post.description %></strong></p>
-      <%= link_to "Ver Anúncio", user_post_path(post.user, post), class: "btn btn-outline-success btn-sm rounded-pill" %>
+  <%= link_to user_post_path(post.user, post), class: "card-link" do %>
+    <div class="card-product mb-2">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= post.title %></h2>
+        <p><strong><%= post.description %></strong></p>
+        <p>Ver Anúncio</p>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
+
+
